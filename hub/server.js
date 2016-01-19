@@ -297,10 +297,15 @@ wsServer.on('request', function(request) {
     connectionStats[id].domains[domain] = true;
     connectionStats[id].totalMessageChars += message.utf8Data.length;
     connectionStats[id].totalMessages++;
-    logger.debug('Message on ' + id + ' bytes: ' +
-                 (message.utf8Data && message.utf8Data.length) +
-                 ' conn ID: ' + connection.ID + ' data:' + message.utf8Data.substr(0, 20) +
-                 ' connections: ' + allConnections[id].length);
+    // logger.debug('Message on ' + id + ' bytes: ' +
+    //              (message.utf8Data && message.utf8Data.length) +
+    //              ' connections: ' + allConnections[id].length) +
+    //              ' conn ID: ' + connection.ID + ' data:' + message.utf8Data.toString();
+    logger.debug('message:' + JSON.stringify(message);
+    // logger.debug('Message on ' + id + ' bytes: ' +
+    //             (message.utf8Data && message.utf8Data.length) +
+    //             ' conn ID: ' + connection.ID + ' data:' + message.utf8Data.substr(0, 20) +
+    //             ' connections: ' + allConnections[id].length);
     for (var i=0; i<allConnections[id].length; i++) {
       var c = allConnections[id][i];
       if (c == connection && !parsed["server-echo"]) {
